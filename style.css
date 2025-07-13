@@ -1,0 +1,3124 @@
+/* --- الألوان الأساسية والمتغيرات (تأكد من وجودها في بداية ملف CSS) --- */
+:root {
+    --primary-color: #007BFF; /* أزرق أساسي */
+    --accent-color: #ffc107; /* لون مميز */
+    --text-color: #333; /* لون النص الأساسي */
+    --light-bg: #f8f9fa; /* خلفية فاتحة */
+    --dark-bg: #343a40; /* خلفية داكنة */
+    --white: #ffffff;
+    --gray-light: #e9ecef;
+    --border-color: #dee2e6;
+}
+
+body {
+    font-family: 'Cairo', 'Tajawal', sans-serif; /* تأكد من خطوطك */
+    direction: rtl; /* لضمان الاتجاه من اليمين لليسار */
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-bg);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px; /* إضافة بعض التباعد على الجوانب */
+}
+
+/* --- شريط التنقل العلوي (Top Bar) --- */
+.top-bar {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 10px 0;
+    font-size: 0.9em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* للسماح بالعناصر بالانتقال لسطر جديد على الشاشات الصغيرة */
+}
+
+.top-bar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px; /* تباعد بين العناصر */
+}
+
+.top-bar .contact-info a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+.top-bar .social-icons a {
+    color: var(--white);
+    margin-right: 10px;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+.top-bar .social-icons a:hover {
+    color: var(--accent-color);
+}
+
+/* --- الهيدر الرئيسي (Header) --- */
+.header {
+    background-color: var(--white);
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .logo img {
+    height: 60px; /* حجم شعارك */
+    width: auto;
+}
+
+/* --- قائمة التنقل الرئيسية (Main Nav) --- */
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 25px; /* تباعد بين عناصر القائمة */
+}
+
+.main-nav ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: bold;
+    padding: 10px 0;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    display: block;
+}
+
+.main-nav ul li a:hover,
+.main-nav ul li a.active {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+/* --- القائمة المنسدلة (Dropdown) --- */
+.dropdown {
+    position: relative;
+}
+
+.dropdown .dropbtn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--white);
+    min-width: 180px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-top: 2px solid var(--primary-color);
+    right: 0; /* ليتوافق مع الاتجاه RTL */
+    left: auto;
+    top: 100%;
+}
+
+.dropdown-content a {
+    color: var(--text-color);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: right; /* ليتوافق مع الاتجاه RTL */
+    font-weight: normal;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--gray-light);
+    border-bottom: none; /* إزالة الخط عند التمرير على الروابط المنسدلة */
+}
+
+/* --- زر القائمة المتنقلة (Mobile Menu Toggle) --- */
+.menu-toggle {
+    display: none; /* مخفي افتراضياً لسطح المكتب */
+    font-size: 1.8em;
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+/* --- الأقسام الداخلية (Internal Sections) --- */
+.internal-hero-section {
+    background: url('../images/internal-hero-bg.jpg') no-repeat center center/cover; /* تأكد من المسار */
+    color: var(--white);
+    text-align: center;
+    padding: 80px 0;
+    position: relative;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.internal-hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* طبقة شفافة لتوضيح النص */
+    z-index: -1;
+}
+
+.internal-hero-section h1 {
+    font-size: 2.8em;
+    margin-bottom: 10px;
+}
+
+.internal-hero-section p {
+    font-size: 1.2em;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.section-padding {
+    padding: 80px 0;
+}
+
+.section-title {
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    font-size: 2.5em;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block; /* ليتناسب مع الخط السفلي */
+}
+
+.section-title h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--secondary-color);
+    margin: 10px auto 0;
+}
+
+.section-title p {
+    font-size: 1.1em;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* --- قسم آراء العملاء (Testimonials Section) --- */
+.testimonials-section {
+    background-color: var(--white);
+    position: relative; /* مهم لتموضع الأزرار المطلق */
+}
+
+.testimonials-section .container {
+    position: relative; /* لتحديد نطاق تموضع الأزرار */
+}
+
+.testimonials-grid {
+    position: relative; /* مهم لتموضع البطاقات بداخله */
+    overflow: hidden; /* لإخفاء البطاقات الزائدة عند التمرير */
+    display: flex; /* لترتيب البطاقات جنباً إلى جنب (سيناريو الـ carousel) */
+    flex-wrap: nowrap; /* لمنع البطاقات من النزول لسطر جديد */
+    justify-content: center; /* توسيط البطاقة الواحدة */
+    align-items: flex-start; /* محاذاة البطاقات للأعلى */
+    height: auto; /* السماح بارتفاع تلقائي */
+    min-height: 350px; /* ارتفاع أدنى لضمان مساحة كافية */
+    gap: 20px; /* تباعد بين البطاقات إذا كنت تعرض أكثر من واحدة */
+    padding: 20px 0; /* تباعد داخلي */
+}
+
+.testimonial-card {
+    flex-shrink: 0; /* منع البطاقات من الانكماش */
+    width: 100%; /* تأخذ عرض الـ grid بالكامل */
+    max-width: 600px; /* تحديد أقصى عرض للبطاقة الواحدة لتبدو جيدة */
+    background-color: var(--light-bg);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    padding: 30px;
+    text-align: center;
+    position: relative;
+    display: none; /* إخفاء جميع البطاقات افتراضياً، JS سيعرض واحدة */
+    transition: opacity 0.5s ease-in-out; /* لتأثير التلاشي */
+}
+
+.testimonial-card .quote-icon {
+    font-size: 3em;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.testimonial-card .testimonial-text {
+    font-size: 1.1em;
+    color: var(--text-color);
+    margin-bottom: 25px;
+    line-height: 1.8;
+}
+
+.testimonial-card .client-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.testimonial-card .client-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 3px solid var(--primary-color);
+}
+
+.testimonial-card .client-name {
+    font-size: 1.3em;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.testimonial-card .client-role {
+    font-size: 0.9em;
+    color: #777;
+}
+
+/* --- تنسيقات أزرار التنقل (Carousel Buttons) --- */
+.carousel-btn {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 12px 18px; /* حجم أكبر قليلاً */
+    border-radius: 50%; /* شكل دائري */
+    cursor: pointer;
+    font-size: 1.5em; /* حجم الخط للأيقونة داخل الزر */
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    
+    /* لضمان توسيط الأيقونة داخل الزر */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* إزالة الموضع المطلق من الأزرار الفردية */
+    position: static; /* مهم جداً */
+    transform: none; /* مهم جداً */
+}
+
+.carousel-btn:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.1); /* تكبير طفيف عند التمرير */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+/* حاوية الأزرار الجديدة */
+.carousel-buttons-wrapper {
+    display: flex; /* لعرض الأزرار بجانب بعضها البعض */
+    justify-content: center; /* توسيط الأزرار أفقياً */
+    align-items: center; /* توسيط الأزرار عمودياً */
+    width: 100%; /* تأخذ العرض الكامل للحاوية الأب */
+    margin-top: 20px; /* تباعد من الأعلى */
+    margin-bottom: 20px; /* تباعد من الأسفل */
+    gap: 20px; /* تباعد بين الأزرار */
+
+    /* إذا أردت وضعها مطلقة بالنسبة للـ grid */
+    /*
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: calc(100% + 40px); // 100% of grid + 20px left + 20px right
+    left: -20px; // Offset to align with grid
+    right: -20px;
+    z-index: 10;
+    */
+}
+
+/* في الشاشات الصغيرة (الجوال) - التأكد من أنها لا تزال تعمل بشكل جيد */
+@media (max-width: 992px) {
+    .carousel-buttons-wrapper {
+        /* هذه التنسيقات ستحافظ على الأزرار بجانب بعضها في المنتصف */
+        position: relative; /* يمكن أن تكون نسبية هنا */
+        top: auto;
+        transform: none;
+        margin-top: 20px; /* تباعد من الأعلى */
+        margin-bottom: 20px; /* تباعد من الأسفل */
+    }
+
+    .carousel-btn {
+        padding: 8px 12px; /* تصغير حجم الأزرار في الجوال */
+        font-size: 1.2em; /* تصغير حجم الأيقونة في الجوال */
+    }
+}
+
+/* تموضع الأزرار داخل .container */
+.testimonials-section .container #carousel-prev-btn {
+    right: -20px; /* للغة العربية، زر السابق على اليمين */
+    left: auto;
+}
+
+.testimonials-section .container #carousel-next-btn {
+    left: -20px; /* خارج الحاوية قليلاً لسهولة الضغط */
+    right: auto;
+}
+/* في الشاشات الصغيرة (الجوال) */
+@media (max-width: 992px) {
+    /* لضمان أن الأزرار تظهر بشكل صحيح في الجوال ولا تخرج عن الشاشة */
+    .testimonials-section .container #carousel-prev-btn,
+    .testimonials-section .container #carousel-next-btn {
+        position: relative; /* تغيير الموضع من مطلق إلى نسبي */
+        transform: none; /* إلغاء التحويل السابق */
+        margin: 0 10px; /* تباعد بين الأزرار */
+        /* يمكن وضعهم في container منفصل لتسهيل التوسيط */
+    }
+
+    /* يمكنك إضافة حاوية لأزرار التنقل في HTML لجعلها أسهل في التوسيط على الجوال */
+    /* إذا لم يكن لديك هذه الحاوية في HTML، هذا الجزء من CSS لن يكون له تأثير */
+    .carousel-buttons-wrapper { /* افترضنا وجود هذه الحاوية */
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
+/* --- تنسيقات نقاط الترقيم (Pagination Dots) --- */
+.carousel-pagination-dots {
+    text-align: center;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* تباعد بين النقاط */
+}
+
+.carousel-pagination-dots .dot {
+    height: 14px; /* حجم أكبر قليلاً */
+    width: 14px;
+    background-color: var(--gray-light); /* لون النقطة غير النشطة */
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: 2px solid transparent; /* حدود شفافة للنقطة */
+}
+
+.carousel-pagination-dots .dot:hover {
+    transform: scale(1.2);
+}
+
+.carousel-pagination-dots .dot.active {
+    background-color: var(--primary-color); /* لون النقطة النشطة */
+    border-color: var(--primary-color); /* حدود بنفس لون النقطة النشطة */
+}
+
+/* --- قسم الدعوة لاتخاذ إجراء (Call to Action Section) --- */
+.call-to-action-section {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 60px 0;
+    text-align: center;
+}
+
+.call-to-action-section h3 {
+    font-size: 2.2em;
+    margin-bottom: 15px;
+}
+
+.call-to-action-section p {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+}
+
+.primary-btn {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    border: 2px solid var(--secondary-color);
+}
+
+.primary-btn:hover {
+    background-color: darken(var(--secondary-color), 10%); /* إذا كنت تستخدم Sass */
+    background-color: #218838; /* بديل CSS عادي */
+    transform: translateY(-2px);
+}
+
+.bg-dark {
+    background-color: var(--dark-bg);
+    color: var(--white);
+}
+
+/* --- الفوتر (Footer) --- */
+.footer {
+    background-color: var(--dark-bg);
+    color: var(--white);
+    padding: 50px 0 20px;
+    font-size: 0.95em;
+}
+
+.footer .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px; /* تباعد بين الأعمدة */
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 20px;
+}
+
+.footer-col .logo img {
+    height: 60px;
+    width: auto;
+    margin-bottom: 15px;
+}
+
+.footer-col h4 {
+    font-size: 1.4em;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.footer-col h4::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 2px;
+    background-color: var(--secondary-color);
+    margin-top: 8px;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+    color: var(--accent-color);
+}
+
+.footer-col .social-links a {
+    color: var(--white);
+    font-size: 1.5em;
+    margin-left: 15px; /* تباعد من اليمين لليسار */
+    transition: color 0.3s ease;
+}
+
+.footer-col .social-links a:hover {
+    color: var(--accent-color);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0.85em;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* --- استجابة الشاشات الصغيرة (Media Queries) --- */
+@media (max-width: 992px) {
+    .main-nav {
+        display: none; /* إخفاء القائمة الرئيسية */
+        width: 100%;
+        background-color: var(--white);
+        position: absolute;
+        top: 90px; /* تحت الهيدر */
+        right: 0;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        z-index: 1000;
+        text-align: right; /* محاذاة النص لليمين */
+        padding-bottom: 20px; /* لإضافة مساحة سفلية للقائمة المفتوحة */
+    }
+
+    .main-nav.active {
+        display: block;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .main-nav ul li a {
+        padding: 15px 20px;
+        border-bottom: 1px solid var(--gray-light);
+    }
+
+    .main-nav ul li:last-child a {
+        border-bottom: none;
+    }
+
+    .menu-toggle {
+        display: block; /* إظهار زر القائمة المتنقلة */
+    }
+
+    .dropdown-content {
+        position: static; /* تغيير الموضع في الجوال */
+        box-shadow: none;
+        border-top: none;
+        padding-right: 20px; /* تباعد لليمين للروابط المنسدلة */
+    }
+
+    .dropdown-content a {
+        padding-right: 35px; /* تباعد أكبر لليمين للروابط المنسدلة */
+    }
+
+    .internal-hero-section h1 {
+        font-size: 2em;
+    }
+
+    .testimonials-section .container #carousel-prev-btn,
+    .testimonials-section .container #carousel-next-btn {
+        position: static; /* إزالة التموضع المطلق */
+        transform: none;
+        margin: 0 10px; /* تباعد بين الأزرار */
+    }
+
+    .testimonials-section .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .testimonials-grid {
+        width: 100%;
+        margin-top: 20px; /* إضافة تباعد بعد الأزرار إذا كانت في الأعلى */
+    }
+    
+    .carousel-btn-container { /* هذا العنصر سيتم إنشاؤه في HTML لجمع الأزرار */
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    .footer .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-col {
+        min-width: unset;
+        width: 100%;
+    }
+
+    .footer-col h4::after {
+        margin: 8px auto 0; /* توسيط الخط السفلي للعناوين */
+    }
+
+    .footer-col .social-links {
+        justify-content: center;
+        display: flex; /* لتوسيط الأيقونات */
+    }
+    .footer-col .social-links a {
+        margin: 0 10px; /* ضبط تباعد الأيقونات في الجوال */
+    }
+}
+
+/* تنسيق إضافي لزر السابق والتالي في الجوال */
+@media (max-width: 768px) {
+    .testimonials-section .container #carousel-prev-btn,
+    .testimonials-section .container #carousel-next-btn {
+        padding: 8px 12px;
+        font-size: 1.2em;
+    }
+}
+
+
+/* إعادة تعيين أساسية وتحديد الخطوط */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Tajawal', sans-serif; /* خط أساسي للعربية */
+    line-height: 1.6;
+    color: #333;
+    background-color: #FFFFFF; /* اللون الأبيض الأساسي */
+    direction: rtl; /* لجعل النص يبدأ من اليمين لليسار */
+    text-align: right; /* محاذاة النص لليمين */
+    overflow-x: hidden; /* لمنع ظهور شريط التمرير الأفقي غير المرغوب فيه */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: right;
+}
+
+/* الألوان الأساسية */
+:root {
+    --primary-color: #183c4f; /* أزرق داكن */
+    --secondary-color: #FFFFFF; /* أبيض */
+    --accent-color: #ffc107; /* لون مميز يمكن استخدامه للأزرار أو بعض النصوص */
+    --text-color: #333; /* لون نص أساسي داكن */
+    --light-gray: #f8f8f8; /* خلفية رمادية فاتحة جداً للأقسام */
+    --shadow-light: 0 4px 15px rgba(0,0,0,0.08);
+    --shadow-medium: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* الأقسام العامة */
+.section-padding {
+    padding: 80px 0;
+}
+
+.bg-dark {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Cairo', sans-serif; /* خط مميز للعناوين */
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+.bg-dark h1, .bg-dark h2, .bg-dark h3, .bg-dark h4 {
+    color: var(--secondary-color);
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+a:hover {
+    color: #122e3e; /* بديل يدوي لـ darken */
+}
+
+/* الأزرار */
+.btn {
+    display: inline-block;
+    padding: 14px 30px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: 1.05em;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: 2px solid var(--primary-color);
+}
+.primary-btn:hover {
+    background-color: #122e3e;
+    border-color: #122e3e;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-light);
+     color: var(--secondary-color) !important;
+}
+
+.secondary-btn {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+.secondary-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-light);
+}
+
+.card-btn {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 10px 20px;
+    font-size: 0.9em;
+    border-radius: 5px;
+}
+.card-btn:hover {
+    background-color: #122e3e;
+}
+
+/* 1. الشريط العلوي */
+.top-bar {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 10px 0;
+    font-size: 0.85em;
+}
+.top-bar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.top-bar .contact-info span,
+.top-bar .social-icons a {
+    margin-left: 20px;
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+.top-bar .social-icons a:hover {
+    opacity: 0.8;
+}
+.top-bar .contact-info i,
+.top-bar .social-icons i {
+    margin-left: 8px;
+}
+
+/* 2. رأس الصفحة (Header) */
+.header {
+    background-color: var(--secondary-color);
+    padding: 15px 0;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header .logo img {
+    height: 60px;
+    vertical-align: middle;
+}
+
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* تدفع عناصر القائمة لليمين */
+    width: 100%; /* تأكد أنها تأخذ المساحة الكاملة */
+}
+.main-nav ul li {
+    margin-left: 35px;
+    position: relative;
+}
+.main-nav ul li a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 600;
+    padding: 10px 0;
+    display: block;
+    transition: color 0.3s ease;
+}
+.main-nav ul li a:hover {
+    color: #122e3e;
+}
+
+/* القائمة المنسدلة (Dropdown) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--secondary-color);
+    min-width: 200px;
+    box-shadow: var(--shadow-light);
+    z-index: 1;
+    right: 0;
+    left: auto;
+    border-radius: 8px;
+    padding: 10px 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+}
+.dropdown-content a {
+    color: var(--primary-color) !important;
+    padding: 12px 20px;
+    text-align: right;
+    font-weight: normal;
+}
+.dropdown-content a:hover {
+    background-color: var(--light-gray);
+    border-radius: 0;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+.dropdown.active .dropdown-content {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+
+/* Hamburger menu icon for mobile */
+.menu-toggle {
+    display: none;
+    font-size: 2em;
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+
+/* 3. قسم البطل (Hero Section) */
+.hero-section {
+    background: url('images/hero-bg.jpg') no-repeat center center/cover;
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 180px 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(24, 60, 79, 0.75);
+}
+.hero-section .container {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+}
+.hero-section h1 {
+    font-size: 4em;
+    margin-bottom: 25px;
+    color: var(--secondary-color);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+.hero-section p {
+    font-size: 1.4em;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    line-height: 1.5;
+}
+.hero-section .primary-btn {
+    font-size: 1.2em;
+    padding: 18px 40px;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border: 2px solid var(--secondary-color);
+}
+.hero-section .primary-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+
+/* 4. قسم "تعرف علينا" */
+.about-section {
+    text-align: center;
+    background-color: var(--secondary-color);
+}
+.about-section h2 {
+    font-size: 2.8em;
+    position: relative;
+    padding-bottom: 15px;
+}
+.about-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    transform: translateX(50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+.about-section p {
+    font-size: 1.15em;
+    max-width: 900px;
+    margin: 0 auto 40px;
+    text-align: justify;
+    line-height: 1.8;
+}
+.about-section p strong {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* 5. قسم "خدماتنا" */
+.services-section {
+    background-color: var(--light-gray);
+    text-align: center;
+}
+.services-section h2 {
+    font-size: 2.8em;
+    position: relative;
+    padding-bottom: 15px;
+}
+.services-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    transform: translateX(50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 35px;
+    margin-top: 50px;
+}
+.service-card {
+    background-color: var(--secondary-color);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.service-card:hover {
+    transform: translateY(-12px);
+    box-shadow: var(--shadow-medium);
+}
+.service-card .service-icon {
+    font-size: 4em;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+}
+.service-card h3 {
+    font-size: 2em;
+    color: var(--primary-color);
+    margin-bottom: 18px;
+}
+.service-card p {
+    font-size: 1.05em;
+    margin-bottom: 30px;
+    flex-grow: 1;
+}
+
+/* 6. قسم "لماذا تختار قلم وورقة؟" */
+.why-choose-us {
+    text-align: center;
+}
+.why-choose-us h2 {
+    margin-bottom: 60px;
+    font-size: 2.8em;
+    position: relative;
+    padding-bottom: 15px;
+    color: var(--secondary-color);
+}
+.why-choose-us h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    transform: translateX(50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--secondary-color);
+    border-radius: 2px;
+}
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 35px;
+}
+.feature-item {
+    text-align: center;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.feature-item:hover {
+    transform: translateY(-8px);
+    background-color: rgba(255, 255, 255, 0.25);
+}
+.feature-item .feature-icon {
+    font-size: 3em;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+.feature-item h4 {
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+    font-size: 1.4em;
+}
+.feature-item p {
+    font-size: 1em;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.7;
+}
+
+
+/* 7. قسم "آراء عملائنا" */
+.testimonials-section {
+    text-align: center;
+    background-color: var(--secondary-color);
+}
+.testimonials-section h2 {
+    font-size: 2.8em;
+    position: relative;
+    padding-bottom: 15px;
+}
+.testimonials-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    transform: translateX(50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+.testimonial-carousel {
+    /* تم تعديلها لتناسب الـ JS (عرض بطاقة واحدة في كل مرة) */
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin: 20px auto;
+    min-height: 300px; /* تم زيادة الارتفاع ليتسع للنص والصورة */
+    display: flex; /* لضمان تمركز البطاقات بشكل صحيح مع JS */
+    justify-content: center; /* لتوسيط البطاقة عندما تظهر واحدة فقط */
+    align-items: center;
+    padding-bottom: 20px; /* مسافة من الأسفل */
+}
+.testimonial-card {
+    display: none; /* مخفية افتراضياً، JavaScript سيعرض واحدة */
+    text-align: center; /* توسيط المحتوى داخل البطاقة */
+    padding: 35px;
+    background-color: var(--light-gray); /* خلفية البطاقة */
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    animation: fadeIn 1s ease-in-out forwards; /* تطبيق animation عند ظهور البطاقة */
+    opacity: 0; /* ابدأ بشفافية صفرية للانيميشن */
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 700px; /* تحديد عرض أقصى لبطاقة الرأي */
+    border-right: 5px solid var(--primary-color); /* شريط جانبي */
+    position: relative; /* لتموضع الأيقونة */
+}
+
+/* عندما يظهر JavaScript البطاقة، اجعلها مرئية وشفافيتها 1 */
+.testimonial-card[style*="display: block"] {
+    opacity: 1;
+}
+
+/* Animation for fade-in */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Style for the actual review text (the P tag) */
+.testimonial-card p {
+    font-style: italic; /* لجعل النص يبدو كرأي */
+    font-size: 1.15em;
+    margin-bottom: 25px;
+    color: #555;
+    text-align: justify; /* محاذاة النص justify */
+    line-height: 1.8;
+    z-index: 1; /* للتأكد من أن النص يظهر فوق الأيقونة الخلفية */
+}
+
+.testimonial-card .client-details { /* تم تغيير من client-info */
+    display: flex;
+    flex-direction: column; /* Stack image and text vertically */
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Style for the review image itself (the IMG tag) */
+.testimonial-card .client-review-image { /* اسم الفئة الجديد */
+    width: 120px; /* حجم معقول لصورة الرأي */
+    height: auto; /* للحفاظ على نسبة الأبعاد */
+    max-width: 100%; /* ضمان عدم تجاوز العرض المحدد */
+    border-radius: 8px; /* زوايا مستديرة للصورة */
+    object-fit: contain; /* تأكد أن الصورة تظهر بالكامل داخل مساحتها */
+    margin-bottom: 15px;
+    border: 1px solid var(--light-gray); /* حدود خفيفة جداً */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* ظل خفيف للصورة */
+}
+
+.testimonial-card .client-details h4 {
+    margin: 0;
+    color: var(--primary-color); /* لون العنوان */
+    font-size: 1.25em; /* حجم أكبر قليلاً لاسم العميل */
+    font-weight: 700;
+}
+
+/* أيقونة الاقتباس (الاقتباس المفتوح) */
+.testimonial-card::before {
+    content: "\f10d"; /* رمز أيقونة الاقتباس من Font Awesome */
+    font-family: "Font Awesome 5 Free"; /* اسم خط Font Awesome */
+    font-weight: 900; /* مطلوب لأيقونات Font Awesome Solid */
+    position: absolute;
+    top: 20px;
+    right: 20px; /* تموضعها في الزاوية العلوية اليمنى */
+    font-size: 3em; /* حجم الأيقونة */
+    color: rgba(24, 60, 79, 0.1); /* لون شفاف يندمج مع الخلفية */
+    z-index: 0; /* لضمان ظهورها خلف النص والصورة */
+}
+
+.testimonials-section .btn { /* ستايل زر "شاهد جميع الآراء" */
+    margin-top: 40px;
+}
+
+
+/* 8. قسم "تواصل معنا" CTA */
+.contact-cta {
+    text-align: center;
+    padding: 100px 0;
+}
+.contact-cta h2 {
+    font-size: 3.2em;
+    margin-bottom: 25px;
+}
+.contact-cta p {
+    font-size: 1.3em;
+    max-width: 800px;
+    margin: 0 auto 50px;
+    line-height: 1.6;
+}
+.contact-cta .primary-btn {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border-color: var(--secondary-color);
+    padding: 16px 40px;
+}
+.contact-cta .primary-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+/* 9. تذييل الصفحة (Footer) */
+.footer {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding-top: 70px;
+    font-size: 0.95em;
+    text-align: right;
+}
+.footer .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+}
+.footer .footer-col {
+    flex: 1;
+    min-width: 280px;
+    margin-bottom: 30px;
+}
+.footer .footer-col .logo img {
+    height: 70px;
+    margin-bottom: 25px;
+}
+.footer .footer-col h4 {
+    color: var(--secondary-color);
+    margin-bottom: 25px;
+    font-size: 1.3em;
+    position: relative;
+    padding-bottom: 10px;
+}
+.footer .footer-col h4::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 60px;
+    height: 4px;
+    background-color: var(--secondary-color);
+    border-radius: 2px;
+}
+.footer .footer-col ul {
+    list-style: none;
+}
+.footer .footer-col ul li {
+    margin-bottom: 12px;
+}
+.footer .footer-col ul li a {
+    color: var(--secondary-color);
+    font-size: 1.05em;
+}
+.footer .footer-col ul li a:hover {
+    color: rgba(255, 255, 255, 0.85);
+}
+.footer .footer-col p a {
+    color: var(--secondary-color);
+}
+.footer .social-links a {
+    color: var(--secondary-color);
+    font-size: 1.4em;
+    margin-left: 20px;
+    transition: transform 0.3s ease;
+}
+.footer .social-links a:hover {
+    transform: translateY(-5px);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 25px 0;
+    margin-top: 40px;
+    text-align: center;
+}
+.footer-bottom .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.footer-bottom ul {
+    list-style: none;
+    display: flex;
+}
+.footer-bottom ul li {
+    margin-left: 25px;
+}
+.footer-bottom ul li a {
+    color: var(--secondary-color);
+    font-size: 1em;
+}
+
+
+/* تحسينات التصميم المتجاوب (للموبايل) */
+@media (max-width: 992px) {
+    .top-bar .contact-info {
+        display: none;
+    }
+    .header .main-nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 90px;
+        right: 0;
+        background-color: var(--secondary-color);
+        box-shadow: var(--shadow-medium);
+        padding: 20px;
+        border-radius: 5px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-20px);
+        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+        margin-right: 0;
+        right: 0;
+        width: 100%;
+        min-width: auto;
+
+        /* التعديلات الجديدة هنا لحل مشكلة التمرير */
+        max-height: calc(100vh - 90px); /* ارتفاع أقصى للقائمة (ارتفاع الشاشة ناقص ارتفاع الهيدر) */
+        overflow-y: auto; /* السماح بالتمرير العمودي عند تجاوز الارتفاع */
+        -webkit-overflow-scrolling: touch; /* لتحسين التمرير على iOS */
+    }
+    .header .main-nav.active {
+        display: flex;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    .header .main-nav ul {
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-end;
+    }
+    .header .main-nav ul li {
+        margin: 0;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--light-gray);
+        width: 100%;
+        text-align: right;
+    }
+    .header .main-nav ul li:last-child {
+        border-bottom: none;
+    }
+    .dropdown .dropbtn {
+        width: 100%;
+        text-align: right;
+    }
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+        background-color: var(--light-gray);
+        padding: 10px 0;
+        margin-top: 10px;
+        width: 100%;
+    }
+    .dropdown-content a {
+        padding-right: 30px;
+    }
+
+    .menu-toggle {
+        display: block;
+        margin-right: 0;
+    }
+
+    .header .container {
+        justify-content: space-between;
+        gap: 0;
+    }
+
+
+    .hero-section {
+        padding: 120px 0;
+    }
+    .hero-section h1 {
+        font-size: 2.8em;
+    }
+    .hero-section p {
+        font-size: 1.1em;
+    }
+
+    .section-padding {
+        padding: 50px 0;
+    }
+
+    h2 {
+        font-size: 2.2em;
+    }
+    h2::after {
+        width: 60px;
+    }
+
+    .services-grid, .features-grid, .testimonial-carousel, .footer .container {
+        grid-template-columns: 1fr;
+    }
+    .service-card, .feature-item, .testimonial-card, .footer-col {
+        margin-bottom: 25px;
+        max-width: 100%;
+    }
+    .testimonial-card .client-details { /* تم تعديل من client-info */
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+    }
+    .testimonial-card .client-review-image { /* اسم الفئة الجديد هنا أيضاً */
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .footer .container {
+        text-align: center;
+        justify-content: center;
+    }
+    .footer .footer-col h4::after {
+        right: 50%;
+        transform: translateX(50%);
+    }
+    .footer .footer-col ul li, .footer .footer-col p {
+        text-align: center;
+    }
+    .footer .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 25px;
+    }
+    .footer .social-links a {
+        margin: 0;
+    }
+    .footer-bottom .container {
+        flex-direction: column;
+    }
+    .footer-bottom ul {
+        margin-top: 15px;
+        justify-content: center;
+    }
+    .footer-bottom ul li {
+        margin: 0 15px;
+    }
+}
+/* Add this to your style.css file */
+
+/* Wrapper for Carousel to position buttons */
+.carousel-wrapper {
+    position: relative;
+    display: flex; /* Use flexbox to align carousel and buttons */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    margin-top: 60px; /* Keep consistent margin from H2 */
+    gap: 20px; /* Gap between buttons and carousel content */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.testimonial-carousel {
+    /* Keep existing styles, but adjust flex properties */
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 700px; /* Limit carousel width */
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20px; /* Space for dots if needed below */
+    flex-grow: 1; /* Allow carousel to grow and take available space */
+}
+
+.testimonial-card {
+    /* Keep existing styles */
+    display: none; /* Controlled by JS */
+    text-align: center;
+    padding: 35px;
+    background-color: var(--light-gray);
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    animation: fadeIn 1s ease-in-out forwards;
+    opacity: 0;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 700px; /* Ensure card respects max-width of carousel */
+    border-right: 5px solid var(--primary-color);
+    position: relative;
+}
+
+/* Carousel Navigation Buttons */
+.carousel-btn {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    padding: 12px 18px; /* Slightly larger padding for touch */
+    border-radius: 50%; /* Make them round */
+    cursor: pointer;
+    font-size: 1.5em; /* Larger icons */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55px; /* Fixed width/height for round buttons */
+    height: 55px;
+    box-shadow: var(--shadow-light);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    flex-shrink: 0; /* Prevent buttons from shrinking */
+    z-index: 10; /* Ensure buttons are above carousel */
+}
+/* --- الألوان الأساسية والمتغيرات --- */
+:root {
+    --primary-color: #183c4f; /* أزرق داكن */
+    --secondary-color: #FFFFFF; /* أبيض */
+    --accent-color: #ffc107; /* لون مميز يمكن استخدامه للأزرار أو بعض النصوص */
+    --text-color: #333; /* لون نص أساسي داكن */
+    --light-gray: #f8f8f8; /* خلفية رمادية فاتحة جداً للأقسام */
+    --gray-light: #e9ecef; /* لون رمادي فاتح إضافي */
+    --dark-bg: #343a40; /* خلفية داكنة */
+    --border-color: #dee2e6; /* لون حدود عام */
+
+    /* ظلال مضافة حديثاً */
+    --shadow-light: 0 4px 15px rgba(0,0,0,0.08);
+    --shadow-medium: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* --- إعادة تعيين أساسية وتحديد الخطوط --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cairo', 'Tajawal', sans-serif;
+    direction: rtl; /* لضمان الاتجاه من اليمين لليسار */
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: var(--secondary-color); /* استخدام secondary-color كخلفية لـ body */
+    overflow-x: hidden; /* لمنع ظهور شريط التمرير الأفقي غير المرغوب فيه */
+    text-align: right; /* محاذاة النص لليمين */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px; /* إضافة بعض التباعد على الجوانب */
+}
+
+/* --- الأقسام العامة والعناوين والفقرات --- */
+.section-padding {
+    padding: 80px 0;
+}
+
+.bg-dark {
+    background-color: var(--dark-bg); /* تم استخدام المتغير الموجود مسبقًا */
+    color: var(--secondary-color);
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Cairo', sans-serif; /* خط مميز للعناوين */
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+/* تنسيق العناوين داخل الخلفيات الداكنة */
+.bg-dark h1, .bg-dark h2, .bg-dark h3, .bg-dark h4 {
+    color: var(--secondary-color);
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #122e3e; /* بديل يدوي لـ darken(var(--primary-color), 10%) */
+}
+
+/* --- الأزرار --- */
+.btn {
+    display: inline-block;
+    padding: 14px 30px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: 1.05em;
+    text-align: center; /* للتأكد من توسيط النص داخل الزر */
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.primary-btn:hover {
+    background-color: #122e3e; /* بديل يدوي لـ darken */
+    border-color: #122e3e; /* بديل يدوي لـ darken */
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-light);
+}
+
+.secondary-btn {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.secondary-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-light);
+}
+
+.card-btn {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 10px 20px;
+    font-size: 0.9em;
+    border-radius: 5px;
+}
+
+.card-btn {
+    background-color: var(--primary-color);
+    color: var(--secondary-color); /* تأكد أن اللون الأبيض هو اللون الافتراضي */
+    padding: 10px 20px;
+    font-size: 0.9em;
+    border-radius: 5px;
+    /* أضف هذا الانتقال السلس للون النص أيضًا */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.card-btn:hover {
+    background-color: #122e3e; /* بديل يدوي لـ darken - هذا يغير الخلفية */
+    color: var(--secondary-color); /* هذا سيجعل لون النص أبيض عند التحويم */
+}
+
+/* --- شريط التنقل العلوي (Top Bar) --- */
+.top-bar {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 10px 0;
+    font-size: 0.9em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.top-bar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.top-bar .contact-info a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.top-bar .social-icons a {
+    color: var(--secondary-color);
+    margin-right: 10px;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+.top-bar .social-icons a:hover {
+    color: var(--accent-color);
+    opacity: 0.8; /* إضافة تأثير opacity عند التحويم */
+}
+
+.top-bar .contact-info i,
+.top-bar .social-icons i {
+    margin-left: 8px; /* تباعد أيقونات التواصل */
+}
+
+/* --- الهيدر الرئيسي (Header) --- */
+.header {
+    background-color: var(--secondary-color);
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky; /* جعل الهيدر ثابتًا عند التمرير */
+    top: 0;
+    z-index: 1000;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .logo img {
+    height: 60px;
+    width: auto;
+    vertical-align: middle; /* لتحسين المحاذاة */
+}
+
+/* --- قائمة التنقل الرئيسية (Main Nav) --- */
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 25px; /* تباعد بين عناصر القائمة */
+    justify-content: flex-end; /* دفع العناصر لليمين */
+}
+
+.main-nav ul li a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 600;
+    padding: 10px 0;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    display: block;
+}
+
+.main-nav ul li a:hover,
+.main-nav ul li a.active {
+    color: #122e3e; /* لون داكن عند التحويم/النشاط */
+    border-bottom: 2px solid var(--primary-color);
+}
+
+/* --- القائمة المنسدلة (Dropdown) --- */
+.dropdown {
+    position: relative;
+}
+
+.dropdown .dropbtn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--secondary-color);
+    min-width: 200px;
+    box-shadow: var(--shadow-light);
+    z-index: 1;
+    border-top: 2px solid var(--primary-color);
+    right: 0; /* ليتوافق مع الاتجاه RTL */
+    left: auto;
+    top: 100%;
+    border-radius: 8px;
+    padding: 10px 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+}
+
+.dropdown-content a {
+    color: var(--primary-color) !important; /* تأكيد اللون */
+    padding: 12px 20px;
+    text-decoration: none;
+    display: block;
+    text-align: right; /* ليتوافق مع الاتجاه RTL */
+    font-weight: normal;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--gray-light);
+    border-radius: 0; /* إزالة الزوايا الدائرية عند التحويم */
+    border-bottom: none; /* إزالة الخط عند التمرير على الروابط المنسدلة */
+}
+
+/* إظهار القائمة المنسدلة عند التحويم أو النشاط */
+.dropdown:hover .dropdown-content,
+.dropdown.active .dropdown-content {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* --- زر القائمة المتنقلة (Mobile Menu Toggle) --- */
+.menu-toggle {
+    display: none; /* مخفي افتراضياً لسطح المكتب */
+    font-size: 1.8em;
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+/* --- قسم البطل (Hero Section) --- */
+.hero-section {
+    background: url('images/hero-bg.jpg') no-repeat center center/cover;
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 180px 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(24, 60, 79, 0.75); /* طبقة شفافة لتوضيح النص */
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+}
+
+.hero-section h1 {
+    font-size: 4em;
+    margin-bottom: 25px;
+    color: var(--secondary-color);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-section p {
+    font-size: 1.4em;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    line-height: 1.5;
+}
+
+.hero-section .primary-btn {
+    font-size: 1.2em;
+    padding: 18px 40px;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border: 2px solid var(--secondary-color);
+}
+
+.hero-section .primary-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+/* --- الأقسام الداخلية الأخرى --- */
+.section-title {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.section-title h2 {
+    font-size: 2.8em;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block; /* ليتناسب مع الخط السفلي */
+    padding-bottom: 15px; /* مسافة للخط السفلي */
+}
+
+.section-title h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-color);
+    margin: 0 auto; /* توسيط الخط */
+    border-radius: 2px;
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    transform: translateX(50%);
+}
+
+.section-title p {
+    font-size: 1.1em;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+
+/* --- قسم "تعرف علينا" (About Section) --- */
+.about-section {
+    text-align: center;
+    background-color: var(--secondary-color);
+}
+
+.about-section p {
+    font-size: 1.15em;
+    max-width: 900px;
+    margin: 0 auto 40px;
+    text-align: justify;
+    line-height: 1.8;
+}
+
+.about-section p strong {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* --- قسم "خدماتنا" (Services Section) --- */
+.services-section {
+    background-color: var(--light-gray);
+    text-align: center;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 35px;
+    margin-top: 50px;
+}
+
+.service-card {
+    background-color: var(--secondary-color);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.service-card:hover {
+    transform: translateY(-12px);
+    box-shadow: var(--shadow-medium);
+}
+
+.service-card .service-icon {
+    font-size: 4em;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.1);
+}
+
+.service-card h3 {
+    font-size: 2em;
+    color: var(--primary-color);
+    margin-bottom: 18px;
+}
+
+.service-card p {
+    font-size: 1.05em;
+    margin-bottom: 30px;
+    flex-grow: 1;
+}
+
+/* --- قسم "لماذا تختار قلم وورقة؟" (Why Choose Us Section) --- */
+.why-choose-us {
+    text-align: center;
+}
+
+.why-choose-us h2 {
+    margin-bottom: 60px;
+}
+
+.why-choose-us h2::after {
+    background-color: var(--secondary-color); /* لون الخط السفلي للخلفية الداكنة */
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 35px;
+}
+
+.feature-item {
+    text-align: center;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.feature-item:hover {
+    transform: translateY(-8px);
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.feature-item .feature-icon {
+    font-size: 3em;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.feature-item h4 {
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+    font-size: 1.4em;
+}
+
+.feature-item p {
+    font-size: 1em;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.7;
+}
+
+/* --- قسم آراء العملاء (Testimonials Section) --- */
+.testimonials-section {
+    text-align: center;
+    background-color: var(--secondary-color);
+}
+
+/* حاوية الكاروسيل والأزرار معًا (التي تم إضافتها في HTML) */
+.carousel-container-and-btns {
+    display: flex;
+    align-items: center; /* توسيط عموديًا */
+    justify-content: center; /* توسيط أفقيًا */
+    gap: 20px; /* تباعد بين الكاروسيل والأزرار */
+    margin-top: 60px; /* تباعد من العنوان H2 */
+    flex-wrap: wrap; /* السماح بالتفاف العناصر على الشاشات الصغيرة */
+}
+
+.testimonial-carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 700px; /* تحديد أقصى عرض للكاروسيل نفسه */
+    min-height: 300px;
+    display: flex; /* لضمان تمركز البطاقات بشكل صحيح مع JS */
+    justify-content: center; /* لتوسيط البطاقة عندما تظهر واحدة فقط */
+    align-items: center;
+    flex-grow: 1; /* السماح للكاروسيل بالنمو داخل حاويته */
+}
+
+.testimonial-card {
+    display: none; /* مخفية افتراضياً، JavaScript سيعرض واحدة */
+    text-align: center;
+    padding: 35px;
+    background-color: var(--light-gray);
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    animation: fadeIn 1s ease-in-out forwards; /* تطبيق animation عند ظهور البطاقة */
+    opacity: 0; /* ابدأ بشفافية صفرية للانيميشن */
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 700px; /* تحديد عرض أقصى لبطاقة الرأي */
+    border-right: 5px solid var(--primary-color);
+    position: relative;
+}
+
+/* Animation for fade-in */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.testimonial-card p {
+    font-style: italic;
+    font-size: 1.15em;
+    margin-bottom: 25px;
+    color: #555;
+    text-align: justify;
+    line-height: 1.8;
+    z-index: 1;
+}
+
+.testimonial-card .client-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.testimonial-card .client-review-image {
+    width: 120px;
+    height: auto;
+    max-width: 100%;
+    border-radius: 8px;
+    object-fit: contain;
+    margin-bottom: 15px;
+    border: 1px solid var(--gray-light); /* تغيير اللون للحفاظ على التناسق */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.testimonial-card .client-details h4 {
+    margin: 0;
+    color: var(--primary-color);
+    font-size: 1.25em;
+    font-weight: 700;
+}
+
+/* أيقونة الاقتباس (الاقتباس المفتوح) */
+.testimonial-card::before {
+    content: "\f10d"; /* رمز أيقونة الاقتباس من Font Awesome */
+    font-family: "Font Awesome 5 Free"; /* اسم خط Font Awesome */
+    font-weight: 900; /* مطلوب لأيقونات Font Awesome Solid */
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 3em;
+    color: rgba(24, 60, 79, 0.1);
+    z-index: 0;
+}
+
+/* --- تنسيقات أزرار التنقل (Carousel Buttons) --- */
+.carousel-btn {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    padding: 12px 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.5em;
+    z-index: 10;
+    box-shadow: var(--shadow-light);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55px; /* حجم ثابت للزر الدائري */
+    height: 55px;
+    flex-shrink: 0; /* منع الأزرار من الانكماش */
+}
+
+.carousel-btn:hover {
+    background-color: #122e3e; /* لون داكن للتحويم */
+    transform: scale(1.05);
+    box-shadow: var(--shadow-medium);
+}
+
+.carousel-btn:active {
+    transform: scale(0.98);
+}
+
+/* تموضع الأزرار في RTL */
+.carousel-container-and-btns .prev-btn {
+    order: 1; /* زر السابق (على اليمين) يأتي أولاً */
+}
+
+.carousel-container-and-btns .next-btn {
+    order: 3; /* زر التالي (على اليسار) يأتي ثالثاً */
+}
+
+/* --- تنسيقات نقاط الترقيم (Pagination Dots) --- */
+.carousel-pagination-dots {
+    text-align: center;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    width: 100%; /* تأخذ العرض الكامل */
+    order: 4; /* توضع أسفل الكاروسيل والأزرار */
+}
+
+.carousel-pagination-dots .dot {
+    height: 14px;
+    width: 14px;
+    background-color: #ccc; /* لون النقطة غير النشطة */
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: 2px solid transparent;
+}
+
+.carousel-pagination-dots .dot:hover {
+    transform: scale(1.2);
+}
+
+.carousel-pagination-dots .dot.active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.testimonials-section .btn { /* ستايل زر "شاهد جميع الآراء" */
+    margin-top: 40px;
+}
+
+/* --- قسم الدعوة لاتخاذ إجراء (Call to Action Section) --- */
+.contact-cta {
+    text-align: center;
+    padding: 100px 0;
+}
+
+.contact-cta h2 {
+    font-size: 3.2em;
+    margin-bottom: 25px;
+}
+
+.contact-cta p {
+    font-size: 1.3em;
+    max-width: 800px;
+    margin: 0 auto 50px;
+    line-height: 1.6;
+}
+
+.contact-cta .primary-btn {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border-color: var(--secondary-color);
+    padding: 16px 40px;
+}
+
+.contact-cta .primary-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+/* --- الفوتر (Footer) --- */
+.footer {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding-top: 70px;
+    font-size: 0.95em;
+    text-align: right;
+}
+
+.footer .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 280px;
+    margin-bottom: 30px;
+}
+
+.footer-col .logo img {
+    height: 70px;
+    width: auto;
+    margin-bottom: 25px;
+}
+
+.footer-col h4 {
+    color: var(--secondary-color);
+    margin-bottom: 25px;
+    font-size: 1.3em;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-col h4::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 60px;
+    height: 4px;
+    background-color: var(--secondary-color);
+    border-radius: 2px;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 1.05em;
+}
+
+.footer-col ul li a:hover {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.footer-col p a { /* تنسيق الروابط داخل الفقرات في الفوتر */
+    color: var(--secondary-color);
+}
+
+.footer-col .social-links a {
+    color: var(--secondary-color);
+    font-size: 1.4em;
+    margin-left: 20px;
+    transition: transform 0.3s ease;
+}
+
+.footer-col .social-links a:hover {
+    transform: translateY(-5px);
+    color: var(--accent-color);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 25px 0;
+    margin-top: 40px;
+    text-align: center;
+    font-size: 0.85em;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-bottom .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-bottom ul {
+    list-style: none;
+    display: flex;
+    padding: 0; /* إزالة الـ padding الزائد */
+    margin: 0; /* إزالة الـ margin الزائد */
+}
+
+.footer-bottom ul li {
+    margin-left: 25px;
+}
+
+.footer-bottom ul li a {
+    color: var(--secondary-color);
+    font-size: 1em;
+}
+
+/* --- أقسام الصفحات الداخلية (Internal Pages Sections) --- */
+.internal-hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/internal-hero-bg.jpg') no-repeat center center/cover; /* يجب التأكد من وجود internal-hero-bg.jpg */
+    color: var(--secondary-color);
+    padding: 100px 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 350px;
+}
+
+.internal-hero-section h1 {
+    font-size: 3.5em;
+    margin-bottom: 15px;
+    color: var(--secondary-color);
+}
+
+.internal-hero-section p {
+    font-size: 1.3em;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* --- قسم "عنّا" (About Content Section) --- */
+.about-content-section {
+    background-color: var(--secondary-color); /* استخدام لون من المتغيرات */
+}
+
+.about-intro {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.about-intro h3 {
+    font-size: 2.5em;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.about-intro p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    color: var(--text-color);
+}
+
+.about-image {
+    max-width: 500px;
+    height: auto;
+    display: block;
+    margin: 20px auto 0 auto;
+    border-radius: 12px;
+    box-shadow: var(--shadow-medium);
+}
+
+/* --- أقسام الرؤية، الرسالة، القيم (Vision, Mission, Values Cards) --- */
+.about-vision-mission {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+
+.vision-mission-card {
+    background-color: var(--light-gray);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: var(--shadow-light);
+    flex: 1 1 calc(33% - 40px); /* 3 بطاقات في الصف مع تباعد */
+    min-width: 300px;
+    text-align: center;
+    border-bottom: 5px solid var(--primary-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vision-mission-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.vision-mission-card .icon-large {
+    font-size: 3.5em;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.vision-mission-card h3 {
+    font-size: 1.8em;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.vision-mission-card p, .vision-mission-card ul {
+    font-size: 1em;
+    line-height: 1.7;
+    color: var(--text-color);
+}
+
+.vision-mission-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: right;
+}
+
+.vision-mission-card ul li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.vision-mission-card ul li i {
+    color: var(--primary-color);
+    font-size: 1.1em;
+}
+
+/* --- قسم "لماذا نحن بالتفصيل" (Why Us Detailed Section) --- */
+.why-us-detailed {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.why-us-detailed h3 {
+    font-size: 2.5em;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+}
+
+.features-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.feature-item-detailed {
+    background-color: var(--light-gray);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: var(--shadow-light);
+    text-align: center;
+    border-right: 5px solid var(--accent-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-item-detailed:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.feature-item-detailed .feature-icon-detailed {
+    font-size: 3em;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.feature-item-detailed h4 {
+    font-size: 1.5em;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.feature-item-detailed p {
+    font-size: 1em;
+    line-height: 1.7;
+    color: var(--text-color);
+}
+
+/* --- قسم الفريق (Team Section) --- */
+.team-section {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.team-section h3 {
+    font-size: 2.5em;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    justify-content: center;
+}
+
+.team-member-card {
+    background-color: var(--light-gray);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: var(--shadow-light);
+    text-align: center;
+    border-bottom: 5px solid var(--primary-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.team-member-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid var(--primary-color);
+}
+
+.team-member-card h4 {
+    font-size: 1.4em;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.team-member-card p {
+    font-size: 0.95em;
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+.team-member-card .social-icons-small a {
+    color: var(--primary-color);
+    font-size: 1.3em;
+    margin: 0 8px;
+    transition: color 0.3s ease;
+}
+
+.team-member-card .social-icons-small a:hover {
+    color: var(--accent-color);
+}
+
+/* --- استجابة الشاشات الصغيرة (Media Queries) --- */
+@media (max-width: 992px) {
+    .top-bar .contact-info {
+        display: none; /* إخفاء معلومات الاتصال في الشريط العلوي على الشاشات الصغيرة */
+    }
+
+    /* قائمة التنقل على الجوال */
+    .header .main-nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 90px;
+        right: 0;
+        background-color: var(--secondary-color);
+        box-shadow: var(--shadow-medium);
+        padding: 20px;
+        border-radius: 5px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-20px);
+        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+        margin-right: 0;
+        min-width: auto;
+        max-height: calc(100vh - 90px);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        z-index: 999; /* أقل من Z-index للهيدر بقليل */
+    }
+
+    .header .main-nav.active {
+        display: flex;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .header .main-nav ul {
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-end;
+        gap: 0; /* إزالة التباعد بين عناصر القائمة في الجوال */
+    }
+
+    .header .main-nav ul li {
+        margin: 0;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--gray-light);
+        width: 100%;
+        text-align: right;
+    }
+
+    .header .main-nav ul li:last-child {
+        border-bottom: none;
+    }
+
+    .dropdown .dropbtn {
+        width: 100%;
+        text-align: right;
+    }
+
+    .dropdown-content {
+        position: static; /* تغيير الموضع في الجوال */
+        box-shadow: none;
+        background-color: var(--light-gray);
+        padding: 10px 0;
+        margin-top: 10px;
+        width: 100%;
+        border-top: none; /* إزالة الحدود العلوية */
+    }
+
+    .dropdown-content a {
+        padding-right: 30px;
+    }
+
+    .menu-toggle {
+        display: block; /* إظهار زر القائمة المتنقلة */
+        margin-right: 0;
+    }
+
+    .header .container {
+        justify-content: space-between;
+        gap: 0;
+    }
+
+    .hero-section {
+        padding: 120px 0;
+    }
+
+    .hero-section h1 {
+        font-size: 2.8em;
+    }
+
+    .hero-section p {
+        font-size: 1.1em;
+    }
+
+    .section-padding {
+        padding: 50px 0;
+    }
+
+    .section-title h2 {
+        font-size: 2.2em;
+    }
+
+    .section-title h2::after {
+        width: 60px;
+    }
+
+    .services-grid,
+    .features-grid,
+    .about-vision-mission, /* أصبح مكدسًا */
+    .features-list, /* أصبح عمودًا واحدًا */
+    .team-grid, /* أصبح عمودًا واحدًا */
+    .footer .container {
+        grid-template-columns: 1fr;
+        flex-direction: column; /* لضمان التكدس لـ flex containers */
+        align-items: center; /* توسيط العناصر المتكدسة */
+    }
+
+    .service-card,
+    .feature-item,
+    .testimonial-card,
+    .vision-mission-card,
+    .feature-item-detailed,
+    .team-member-card,
+    .footer-col {
+        margin-bottom: 25px;
+        max-width: 100%;
+    }
+
+    /* تعديلات الكاروسيل في الجوال */
+    .carousel-container-and-btns {
+        flex-direction: column; /* تكديس العناصر عمودياً */
+        gap: 30px;
+    }
+
+    .carousel-btn {
+        order: unset; /* إزالة ترتيب flex ليعود للتدفق الطبيعي */
+        margin: 0 10px; /* تباعد أفقي بسيط بين الأزرار */
+        width: 45px;
+        height: 45px;
+        font-size: 1.2em;
+    }
+    
+    .testimonial-carousel {
+        order: 2; /* وضع الكاروسيل في المنتصف بين الأزرار والنقاط */
+        width: 95%; /* ضبط العرض ليتناسب مع الشاشات الصغيرة */
+    }
+
+    .carousel-pagination-dots {
+        order: 3; /* وضع النقاط أسفل الكاروسيل */
+        margin-top: 20px;
+    }
+
+    /* تجميع الأزرار أفقياً في الأعلى على الشاشات الصغيرة */
+    .carousel-container-and-btns > .prev-btn, 
+    .carousel-container-and-btns > .next-btn {
+        display: inline-flex; /* لجعلها تظهر على نفس السطر */
+    }
+    
+    .carousel-container-and-btns {
+        flex-wrap: nowrap; /* منع الأزرار من الالتفاف إلى سطر جديد */
+        justify-content: center; /* توسيط الأزرار عندما تكون مجمعة */
+        margin-bottom: 20px; /* مسافة بين الأزرار والكاروسيل */
+    }
+
+    .testimonial-card .client-details {
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+    }
+
+    .testimonial-card .client-review-image {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .footer .container {
+        text-align: center;
+        justify-content: center;
+    }
+
+    .footer-col h4::after {
+        right: 50%;
+        transform: translateX(50%);
+    }
+
+    .footer-col ul li,
+    .footer-col p {
+        text-align: center;
+    }
+
+    .footer-col .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 25px;
+    }
+
+    .footer-col .social-links a {
+        margin: 0;
+    }
+
+    .footer-bottom .container {
+        flex-direction: column;
+    }
+
+    .footer-bottom ul {
+        margin-top: 15px;
+        justify-content: center;
+    }
+
+    .footer-bottom ul li {
+        margin: 0 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* تصغير الأزرار أكثر في الجوال */
+    .carousel-btn {
+        padding: 8px 12px;
+        font-size: 1.2em;
+    }
+
+    .internal-hero-section h1 {
+        font-size: 2.8em;
+    }
+
+    .internal-hero-section p {
+        font-size: 1.1em;
+    }
+
+    .about-intro h3,
+    .why-us-detailed h3,
+    .team-section h3 {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .testimonial-card {
+        padding: 25px;
+    }
+
+    .testimonial-card p {
+        font-size: 1em;
+    }
+
+    .testimonial-card .client-review-image {
+        width: 100px;
+        height: auto;
+    }
+
+    .testimonial-card h4 {
+        font-size: 1.1em;
+    }
+
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1em;
+        padding: 10px 15px;
+    }
+
+    .internal-hero-section {
+        padding: 80px 15px;
+        min-height: 280px;
+    }
+
+    .internal-hero-section h1 {
+        font-size: 2.2em;
+    }
+
+    .internal-hero-section p {
+        font-size: 1em;
+    }
+
+    .about-intro h3,
+    .why-us-detailed h3,
+    .team-section h3 {
+        font-size: 1.8em;
+    }
+
+    .about-intro p {
+        font-size: 0.95em;
+    }
+
+    .vision-mission-card,
+    .feature-item-detailed,
+    .team-member-card {
+        padding: 20px;
+    }
+
+    .vision-mission-card h3,
+    .feature-item-detailed h4,
+    .team-member-card h4 {
+        font-size: 1.3em;
+    }
+}
+/* --- Hero Section for Contact Page - تحديث تصميم قسم الهيرو --- */
+.hero-contact {
+    background: linear-gradient(to right, rgba(76, 175, 80, 0.7), rgba(0, 123, 255, 0.7)), url('images/contact-hero-bg.jpg') no-repeat center center/cover;
+    /* خلفية متدرجة شفافة فوق الصورة */
+    color: #fff;
+    padding: 120px 0; /* زيادة المساحة الرأسية */
+    text-align: center;
+    position: relative;
+    overflow: hidden; /* لإخفاء أي جزء زائد من الصورة أو التأثيرات */
+}
+
+.hero-contact h1 {
+    font-size: 4em; /* حجم أكبر للعنوان الرئيسي */
+    margin-bottom: 25px;
+    color: #fff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4); /* ظل خفيف لتحسين الوضوح */
+    position: relative;
+    z-index: 2;
+}
+
+.hero-contact p {
+    font-size: 1.3em; /* حجم أكبر للنص الوصفي */
+    max-width: 800px;
+    margin: 0 auto 40px;
+    line-height: 1.7;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3); /* ظل خفيف */
+    position: relative;
+    z-index: 2;
+}
+
+/* --- Contact Content Section - Single Column Layout - تنسيق جديد لكتلة الاتصال --- */
+.contact-content {
+    background-color: #f0f2f5; /* لون خلفية رمادي فاتح جديد */
+    padding: 80px 0; /* مسافة بادئة أكبر */
+}
+
+.contact-single-column {
+    max-width: 750px; /* زيادة العرض الأقصى قليلاً */
+    margin: 0 auto;
+    padding: 0 25px; /* مسافة بادئة جانبية أكبر */
+}
+
+.contact-info-block {
+    background-color: #ffffff; /* خلفية بيضاء */
+    padding: 50px; /* تباعد داخلي أكبر بكثير */
+    border-radius: 12px; /* حواف أكثر دائرية */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* ظل أقوى وأكثر انتشارًا */
+    text-align: center;
+    border-top: 5px solid var(--primary-color); /* شريط علوي بلون مميز */
+}
+
+.contact-info-block h2 {
+    color: var(--heading-color);
+    font-size: 2.8em; /* حجم أكبر لعنوان الكتلة */
+    margin-bottom: 35px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.contact-info-block h2::after { /* خط زخرفي تحت العنوان */
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+.contact-info-block > p { /* النص التمهيدي فوق القائمة */
+    font-size: 1.15em;
+    color: var(--text-color);
+    line-height: 1.7;
+    margin-bottom: 40px;
+    max-width: 550px; /* تحديد عرض للنص */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-info-block ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto 40px; /* توسيط القائمة وزيادة المسافة */
+    max-width: 450px; /* عرض أكبر قليلاً للقائمة */
+}
+
+.contact-info-block ul li {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* لمحاذاة العناصر إلى اليمين في RTL */
+    margin-bottom: 25px; /* زيادة المسافة بين العناصر */
+    font-size: 1.3em; /* حجم أكبر للنص */
+    color: var(--text-color);
+    font-weight: 500; /* وزن خط متوسط */
+}
+
+.contact-info-block ul li:last-child {
+    margin-bottom: 0;
+}
+
+.contact-info-block .contact-icon {
+    color: var(--primary-color);
+    font-size: 1.8em; /* أيقونات أكبر */
+    margin-left: 20px; /* مسافة أكبر */
+    min-width: 40px;
+    text-align: center;
+    transition: transform 0.3s ease; /* تأثير حركة للأيقونات */
+}
+
+.contact-info-block ul li:hover .contact-icon {
+    transform: scale(1.1); /* تكبير الأيقونة عند التحويم */
+}
+
+.contact-info-block ul li a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: 600; /* جعل الروابط أكثر جرأة */
+}
+
+.contact-info-block ul li a:hover {
+    color: var(--primary-color); /* تغيير اللون عند التحويم */
+}
+
+.contact-info-block h3 {
+    color: var(--heading-color);
+    font-size: 2em; /* حجم أكبر لعنوان وسائل التواصل */
+    margin-top: 50px; /* مسافة علوية كبيرة */
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.contact-info-block h3::after { /* خط زخرفي تحت العنوان الفرعي */
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--secondary-color); /* لون مختلف للخط */
+    border-radius: 2px;
+}
+
+.contact-social {
+    display: flex;
+    justify-content: center;
+    gap: 25px; /* زيادة المسافة بين الأيقونات */
+}
+
+.contact-social a {
+    font-size: 2.5em; /* أيقونات تواصل اجتماعي أكبر */
+    color: var(--primary-color);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-social a:hover {
+    color: var(--primary-color); /* تغيير اللون عند التحويم */
+    transform: translateY(-7px) rotate(5deg); /* تأثير حركة مميز */
+}
+
+/* --- WhatsApp Floating Button --- */
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px; /* إبعاده عن الأسفل قليلاً */
+    right: 25px; /* إبعاده عن اليمين قليلاً */
+    background-color: #25d366; /* لون واتساب الأخضر */
+    color: white;
+    width: 65px; /* حجم أكبر قليلاً */
+    height: 65px; /* حجم أكبر قليلاً */
+    border-radius: 50%;
+    text-align: center;
+    font-size: 2.5em; /* أيقونة واتساب أكبر */
+    line-height: 65px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* ظل أوضح */
+    z-index: 1000;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.whatsapp-float:hover {
+    background-color: #128c7e;
+    transform: scale(1.15) rotate(5deg); /* تأثير حركة أكبر */
+}
+
+.whatsapp-float i {
+    color: white;
+}
+
+/* For active link in navigation - تمييز رابط الصفحة النشطة */
+.main-nav ul li a.active {
+    color: var(--primary-color);
+    font-weight: bold;
+    border-bottom: 3px solid var(--primary-color); /* خط سفلي أكثر سمكاً */
+    padding-bottom: 5px; /* مسافة تحت الخط */
+}
+
+/* Variables for colors (تأكد من وجود هذه المتغيرات في بداية ملف style.css ضمن :root) */
+/*
+:root {
+    --primary-color: #4CAF50; // أخضر
+    --primary-color-dark: #388E3C; // أخضر أغمق قليلاً
+    --primary-rgb: 76, 175, 80;
+    --secondary-color: #007bff; // أزرق
+    --secondary-color-dark: #0056b3; // أزرق أغمق
+    --text-color: #444; // لون نص أغمق قليلاً للقراءة
+    --heading-color: #2c3e50; // لون العناوين
+    --light-bg: #f8f8f8;
+    --dark-bg: #34495e;
+}
+*/
